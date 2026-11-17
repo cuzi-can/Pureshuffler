@@ -1,0 +1,17 @@
+[package]
+name = "pureshuffler"
+version = "1.0.0"
+edition = "2021"
+description = "Pure-Rust MP4 shuffler: cuts a video at keyframes, shuffles the chunks and rewrites the file without FFmpeg and without re-encoding"
+
+# No external crates: builds offline with a plain `cargo build --release`.
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
+
+# Makes this folder its own workspace, so Cargo does not go looking for a
+# Cargo.toml in a parent folder (for example one left in Downloads).
+[workspace]
